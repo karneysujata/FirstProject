@@ -8,6 +8,7 @@
 	<body>
 		<div id=nav-placeholder">
 			<nav class="navbar navbar-expand-lg navbar-custom ">
+			  <img class="img-responsive" width = "50px" src="${pageContext.request.contextPath}/resources/images/ki.png" alt="lk">
 		      <a class="navbar-brand acolor" href="#">SunRisers</a>
 		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		        <span class="navbar-toggler-icon"></span>
@@ -22,15 +23,16 @@
 		            <a class="nav-link acolor" href="#">Home <span class="sr-only">(current)</span></a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link acolor" href="student/showform">Register</a>
+		            <a class="nav-link acolor" href="student/showform">Signup</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link acolor" href="contactus/showform">Contactus</a>
+		            <a class="nav-link acolor" href="contactus/showform">Login</a>
 		          </li>
 		        </ul>
 		      </div>
 		    </nav>
 		</div>
+		
 		<div class="container-fluid">
       		<div class="row jumbotron">
        		 	<div class="col-sm-12 text-center">
