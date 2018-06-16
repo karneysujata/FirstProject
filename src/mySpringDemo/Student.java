@@ -1,12 +1,33 @@
 package mySpringDemo;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+
 public class Student {
+	@NotNull(message="is required")
+	@Size(min=1,message="is required")
 	private String firstname;
+	
+	@NotNull
+	@Size(min=1,message="is required")
 	private String lastname;
+	
+	@NotNull(message="is required")
+	@Min(value=10, message="should be greater than and equal to ten")
+	@Max(value=80, message="should be less than and equal to eighty")
+	private Integer age;
+	
 	private String country;
 	private String favlanguage;
 	private String password;
+	
+	@Pattern(regexp="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$" , message="email id is invalid")
 	private String email;
+	
 	private String gender;
 
 	public Student() {
@@ -66,7 +87,23 @@ public class Student {
 	}
 
 	public void setgender(String gender) {
-		gender = gender;
+		this.gender = gender;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }

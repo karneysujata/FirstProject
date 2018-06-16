@@ -9,7 +9,7 @@
 		<div class="h-100 row align-items-center">
        		 	<div class="col-sm-12 text-center ">
        		 		<h1 class="hcolor "> Fill the form below to get registered </h1>
-					<form action="processformv2" method ="GET" >
+					<form action="processform" method ="GET" >
 						<div class="form-group">
 							<label>Name:</label>
 							<input  type="text" name="Studentname" placeholder="enter registered name" />

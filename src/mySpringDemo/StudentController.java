@@ -1,7 +1,13 @@
 package mySpringDemo;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,11 +24,23 @@ public class StudentController {
 		
 	}
 	
+	@InitBinder
+	public void initBinder(WebDataBinder databinder) {
+		StringTrimmerEditor trimmereditor = new StringTrimmerEditor(true);
+		databinder.registerCustomEditor(String.class, trimmereditor);
+		
+	}
+	
+	
 	@RequestMapping("/processform")
-	public String ProcessForm(@ModelAttribute("student") Student stud) {
+	public String ProcessForm(@Valid @ModelAttribute("student") Student stud, BindingResult bindingresult) {
 		
-		
-		return "student-confirmation";
+		if(bindingresult.hasErrors()) {
+			return "student-form";
+		}
+		else {
+			return "student-confirmation";
+		}
 	}
 
 }

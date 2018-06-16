@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/contactus")
-public class ContactUs {
+public class Login {
 
 	@RequestMapping("/showform")
 	public String ShowForm() {
