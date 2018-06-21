@@ -1,24 +1,21 @@
 package mySpringDemo;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Size;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import mySpringDemo.validation.CourseCode;
 
-@Controller
-@RequestMapping("/contactus")
 public class Login {
+	
 
-	@RequestMapping("/showform")
-	public String ShowForm() {
-		return "hello-form";
+	@CourseCode
+	private String search;
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
-	@RequestMapping("/processform")
-	public String ProcessForm() {
-		return "hello";
-	}
-
 }
