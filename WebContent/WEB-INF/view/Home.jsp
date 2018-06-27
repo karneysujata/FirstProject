@@ -1,4 +1,4 @@
-<html>
+z<html>
 	<head>
 		<title>Spring learning home page</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
@@ -6,7 +6,7 @@
 		<script src="${pageContext.request.contextPath}/resources/js/simple-test.js"></script>
 	</head>
 	<body>
-		<div id=nav-placeholder">
+		<div id="nav-placeholder">
 			<nav class="navbar navbar-expand-lg navbar-custom ">
 			  <img class="img-responsive" width = "50px" src="${pageContext.request.contextPath}/resources/images/ki.png" alt="lk">
 		      <a class="navbar-brand acolor" href="#">SunRisers</a>
@@ -32,15 +32,15 @@
 		      </div>
 		    </nav>
 		</div>
-		
-		<div class="container-fluid">
-      		<div class="row jumbotron ">
-       		 	<div class="col-sm-12 text-center">
+		<div> </div>
+		<div class="body">
+		<div class="mt-5" > 
+       		 	<div class="col-sm-12 text-center  pt-5 pb-5">
 					<h1>Welcome to my first web page</h1>
 					<hr>
 					<p> Iam still developing this website by leaning some topics and practicing them here.</p> 
 				</div>
 			</div>
-		</div>
+	</div>
 	</body>
 </html>
