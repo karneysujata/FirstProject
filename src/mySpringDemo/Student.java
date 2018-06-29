@@ -1,34 +1,59 @@
 package mySpringDemo;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+@Entity
+@Table(name="student")
 public class Student {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+	
+	@Column(name = "first_name")
 	@NotNull(message="is required")
 	@Size(min=1,message="is required")
 	private String firstname;
 	
+	@Column(name = "last_name")
 	@NotNull
 	@Size(min=1,message="is required")
 	private String lastname;
 	
-	@NotNull(message="is required")
+	/*@NotNull(message="is required")
 	@Min(value=10, message="should be greater than and equal to ten")
 	@Max(value=80, message="should be less than and equal to eighty")
 	private Integer age;
-	
+	private String gender;
 	private String country;
 	private String favlanguage;
 	private String password;
-	
+	*/
+	@Column(name = "email")
 	@Pattern(regexp="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$" , message="email id is invalid")
 	private String email;
-	
-	private String gender;
+	 
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public Student() {
 		
@@ -50,7 +75,7 @@ public class Student {
 		this.lastname = lastname;
 	}
 	
-	public String getCountry() {
+	/*public String getCountry() {
 		return country;
 	}
 
@@ -73,7 +98,7 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+*/
 	public String getEmail() {
 		return email;
 	}
@@ -81,7 +106,7 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+/*
 	public String getgender() {
 		return gender;
 	}
@@ -105,5 +130,5 @@ public class Student {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
+*/
 }

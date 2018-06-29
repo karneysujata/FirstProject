@@ -1,4 +1,4 @@
-z<html>
+<html>
 	<head>
 		<title>Spring learning home page</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
@@ -6,6 +6,7 @@ z<html>
 		<script src="${pageContext.request.contextPath}/resources/js/simple-test.js"></script>
 	</head>
 	<body>
+		<!-- Navigation bar -->
 		<div id="nav-placeholder">
 			<nav class="navbar navbar-expand-lg navbar-custom ">
 			  <img class="img-responsive" width = "50px" src="${pageContext.request.contextPath}/resources/images/ki.png" alt="lk">
