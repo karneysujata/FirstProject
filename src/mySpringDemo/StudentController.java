@@ -13,24 +13,36 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import myspringDAO.StudentDAO;
+import myspringService.StudentService;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
 	
 	@Autowired
-	private StudentDAO studentDAO;
+	private StudentService studentService;
 	
 	@RequestMapping("/liststudent")
 	public String listStudents(Model model) {
 		
-		List<Student> theStudents = studentDAO.getStudent();
+		List<Student> theStudents = studentService.getStudent();
 		
 		model.addAttribute("students", theStudents);
 		
 		return "list-students";
+	}
+	
+	@RequestMapping("/UpdateForm")
+	public String Update(@RequestParam("studentid") int id , Model model) {
+		
+		Student theStudent = studentService.getStudent(id);
+		
+		model.addAttribute("student",theStudent);
+		
+		return "StudentUpdate-form";
+		
 	}
 	
 	@RequestMapping("/showform")
@@ -57,6 +69,8 @@ public class StudentController {
 			return "student-form";
 		}
 		else {
+			studentService.SaveStudent(stud);
+			
 			return "student-confirmation";
 		}
 	}

@@ -7,20 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import myspringDAO.CourseDAO;
+import myspringService.StudentService;
 
 @Controller
 @RequestMapping("/course")
 public class courseController {
 	
 	@Autowired
-	private CourseDAO courseDAO;
+	private StudentService studentService;
 	
 	
 	@RequestMapping("/list")
 	public String listCourses(Model themodel) {
 		
-		List<Course> thecourse = courseDAO.getCourse();
+		List<Course> thecourse = studentService.getCourse();
 		
 		themodel.addAttribute("courses",thecourse);
 			

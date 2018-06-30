@@ -2,12 +2,13 @@ package myspringDAO;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import mySpringDemo.Student;
 
@@ -17,7 +18,6 @@ public class StudentDAOImpl implements StudentDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Transactional
 	@Override
 	public List<Student> getStudent() {
 		
@@ -28,6 +28,24 @@ public class StudentDAOImpl implements StudentDAO {
 		List<Student> students = theQuery.getResultList();
 		
 		return students;
+	}
+
+	@Override
+	public void SaveStudent(@Valid Student stud) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.saveOrUpdate(stud);;
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Student student = currentSession.get(Student.class, id);
+		
+		return student;
 	}
 
 }
