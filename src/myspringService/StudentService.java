@@ -16,4 +16,6 @@ public interface StudentService {
 	public void SaveStudent(@Valid Student stud) ;
 
 	public Student getStudent(int id);
+
+	public void deletestudent(int id);
 }

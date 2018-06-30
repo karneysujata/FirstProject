@@ -48,4 +48,14 @@ public class StudentDAOImpl implements StudentDAO {
 		return student;
 	}
 
+	@Override
+	public void deletestudent(int id) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Student student = currentSession.get(Student.class, id);
+		
+		currentSession.delete(student);
+	}
+
 }

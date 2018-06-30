@@ -23,12 +23,18 @@
 					<c:url var = "updateLink" value ="/student/UpdateForm">
 						<c:param name = "studentid" value = "${temp.id }" />
 					</c:url>
+					<c:url var = "deleteLink" value ="/student/delete">
+						<c:param name = "studentid" value = "${temp.id }" />
+					</c:url>
 					<tr>
 						<td> ${temp.firstname} </td>
 						<td> ${temp.lastname} </td>
 						<td>${temp.email}</td>	
 						
 						<td><a href = "${updateLink}"> Update</a></td>
+						
+						<td><a href = "${deleteLink}" onclick ="if(!(confirm('Do you really wanna delete this student?'))) return false"> Delete</a></td>
+					
 					</tr>
 					
 				</c:forEach>

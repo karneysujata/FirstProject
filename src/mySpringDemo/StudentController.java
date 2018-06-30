@@ -34,6 +34,14 @@ public class StudentController {
 		return "list-students";
 	}
 	
+	@RequestMapping("/delete")
+	public String deleteStudent(@RequestParam("studentid") int id ) {
+		
+		studentService.deletestudent(id);
+		
+		return "redirect:/student/liststudent";
+	}
+	
 	@RequestMapping("/UpdateForm")
 	public String Update(@RequestParam("studentid") int id , Model model) {
 		
